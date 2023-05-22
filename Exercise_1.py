@@ -1,22 +1,19 @@
-# Python code to implement iterative Binary  
-# Search. 
-  
-# It returns location of x in given array arr  
-# if present, else returns -1 
-def binarySearch(arr, l, r, x): 
-  
-  #write your code here
-  
-    
-  
-# Test array 
-arr = [ 2, 3, 4, 10, 40 ] 
-x = 10
-  
-# Function call 
-result = binarySearch(arr, 0, len(arr)-1, x) 
-  
-if result != -1: 
-    print "Element is present at index % d" % result 
-else: 
-    print "Element is not present in array"
+# Solution to the Binary search Problem on leetcode
+# https://leetcode.com/problems/binary-search/
+# Time Complexity: O(N)
+
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        i = 0
+        j = len(nums)-1
+        mid = (i+j)//2
+        while(i<=j):
+            mid = (i+j)//2
+            if nums[mid] == target:
+                return mid
+            elif target > nums[mid]:
+                i = mid + 1
+            elif target < nums[mid]:
+                j = mid - 1
+        return -1    
+            
